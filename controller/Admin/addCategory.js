@@ -1,0 +1,21 @@
+const { category } = require("../../models");
+const addCategory = async (req, res, next) => {
+    try {
+        const { name } = req.body;
+        const mobileicon = req.files[0].filename;
+        const desktopicon = req.files[1].filename;
+        const brandicon = req.files[2].filename;
+
+        const AddCategory = await category.create({ name: name, mobileicon: mobileicon, desktopicon: desktopicon, brandicon: brandicon })
+            .then((item) => {
+                res.status(200).json({ result: 'success', msg: 'Your category add successfully', item: item });
+            })
+            .catch((error) => {
+                res.status(500).json({ result: 'error', msg: error['message'] });
+            })
+    } catch (error) {
+        res.status(500).json({ result: 'error', msg: error['message'] });
+    }
+}
+
+module.exports = addCategory;
