@@ -7,7 +7,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "db-migrate": "npx sequelize db:migrate",
-    "gen-mig": "npx sequelize-mig -d ./models"
+    "gen-mig": "npx sequelize-mig -d ./models",
+    "postinstall": "npm install pg pg-hstore"
   },
   "keywords": [],
   "author": "",

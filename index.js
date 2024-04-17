@@ -4,7 +4,7 @@ var cookieParser = require("cookie-parser");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(morgan("common"));
