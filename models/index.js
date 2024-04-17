@@ -7,7 +7,10 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 require("dotenv").config();
 
-const sequelize = new Sequelize(process.env.DB_URI);
+const sequelize = new Sequelize(process.env.DB_URI, {
+  dialect: "postgres",
+  dialectModule: require("pg"),
+});
 
 const db = {};
 
