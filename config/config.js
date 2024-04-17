@@ -1,16 +1,16 @@
-module.exports = {
-  HOST: process.env.HOST,
-  USER: process.env.USER,
-  PASSWORD: process.env.PASSWORD,
-  DB: process.env.DATABASE,
-  dialect: "mariadb",
+require("dotenv").config();
 
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
+module.exports = {
+  development: {
+    url: process.env.DB_URI,
+    dialect: "postgres",
+  },
+  test: {
+    url: process.env.DB_URI,
+    dialect: "postgres",
+  },
+  production: {
+    url: process.env.DB_URI,
+    dialect: "postgres",
   },
 };
-
-
